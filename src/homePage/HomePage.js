@@ -39,6 +39,7 @@ export function HomePage() {
       title: 'craig love',
       images: require('../images/craig_love.png'),
     },
+    //hello world
   ]);
   return (
     <View style={styles.container}>
