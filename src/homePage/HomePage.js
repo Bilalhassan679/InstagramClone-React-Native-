@@ -11,6 +11,7 @@ import {
 import {styles} from './style';
 import {Divider} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function HomePage() {
   const [story, setStory] = useState([
@@ -39,7 +40,6 @@ export function HomePage() {
       title: 'craig love',
       images: require('../images/craig_love.png'),
     },
-    //hello world
   ]);
   return (
     <View style={styles.container}>
@@ -54,7 +54,6 @@ export function HomePage() {
           <Image
             style={styles.appCenterContainer}
             source={require('../images/logo.png')}
-            // source={require('../images/logo.png')}
           />
         </View>
         <View style={styles.appRightContainer}>
@@ -63,8 +62,8 @@ export function HomePage() {
         </View>
       </View>
       <Divider />
-      <ScrollView horizontal={true}>
-        <View style={styles.storyMainContainer}>
+      <View style={styles.storyMainContainer}>
+        <ScrollView horizontal={true}>
           {story.length > 0 &&
             story.map(res => {
               return (
@@ -74,9 +73,55 @@ export function HomePage() {
                 </View>
               );
             })}
+        </ScrollView>
+      </View>
+      <Divider />
+      <ScrollView>
+        <View style={styles.feedMainContainer}>
+          <View style={styles.feedContainer}>
+            <Image
+              style={{marginRight: 15}}
+              source={require('../images/joshua.png')}
+            />
+            <View style={{height: 40}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <Text style={{color: 'black', paddingRight: 5}}>joshua_I</Text>
+                <Image source={require('../images/verifiedIcon.png')} />
+              </View>
+              <Text style={{fontSize: 11}}>Tokyo,Japan</Text>
+            </View>
+            <View
+              style={{
+                width: 30,
+                marginLeft: 'auto',
+                paddingBottom: 25,
+              }}>
+              <MaterialCommunityIcons
+                name="settings-helper"
+                color={'black'}
+                size={30}
+              />
+            </View>
+          </View>
+          <Image
+            Style={styles.feedImageContainer}
+            source={require('../images/feedPicture.png')}
+          />
+        </View>
+        <View style={styles.LikesMainContainer}>
+          <View style={styles.LikesMainContainer}>
+            <Feather name="heart" size={25} />
+            <Feather name="heart" size={25} />
+            <Feather name="heart" size={25} />
+          </View>
+          <Text> Hello World</Text>
+          <Text> Hello World</Text>
         </View>
       </ScrollView>
-      <View style={styles.feedMainContainer}></View>
     </View>
   );
 }

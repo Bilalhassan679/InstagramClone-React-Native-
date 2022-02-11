@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   storyMainContainer: {
+    // backgroundColor: 'green',
     flexDirection: 'row',
     height: hp('12'),
   },
@@ -50,7 +51,28 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   feedMainContainer: {
+    // height: hp('10'),
+  },
+  feedContainer: {
+    flexDirection: 'row',
+    height: hp('9'),
+    paddingHorizontal: wp('2'),
+    alignItems: 'center',
+  },
+  feedImageContainer: {
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  LikesMainContainer: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    paddingHorizontal: wp('2'),
     backgroundColor: 'green',
-    height: hp('4'),
+    alignItems: 'center',
+  },
+  LikesContainer: {
+    paddingHorizontal: wp('5'),
+    flexDirection: 'row',
   },
 });
