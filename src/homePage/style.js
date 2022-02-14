@@ -68,11 +68,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingHorizontal: wp('2'),
-    backgroundColor: 'green',
+    paddingTop: hp('1'),
     alignItems: 'center',
   },
   LikesContainer: {
     paddingHorizontal: wp('5'),
     flexDirection: 'row',
+  },
+  likeIconMainContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingTop: 10,
   },
 });

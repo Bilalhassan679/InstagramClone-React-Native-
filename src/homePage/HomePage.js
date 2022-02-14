@@ -7,40 +7,26 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Animated,
+  FlatList,
 } from 'react-native';
 import {styles} from './style';
 import {Divider} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import Paginator from '../components/Paginator';
+import slides from '../slides';
+import storySlider from '../storySlider';
 
 export function HomePage() {
-  const [story, setStory] = useState([
-    {
-      id: 0,
-      title: 'Your Profile',
-      images: require('../images/yourprofile.png'),
-    },
-    {
-      id: 1,
-      title: 'kieren',
-      images: require('../images/kieren.png'),
-    },
-    {
-      id: 2,
-      title: 'jason',
-      images: require('../images/jason.png'),
-    },
-    {
-      id: 3,
-      title: 'keiron d',
-      images: require('../images/keiron_d.png'),
-    },
-    {
-      id: 4,
-      title: 'craig love',
-      images: require('../images/craig_love.png'),
-    },
-  ]);
+  const [indexChange, setIndexChange] = useState(0);
+  const [story, setStory] = useState(storySlider);
+  const onViewRef = React.useRef(viewableItems => {
+    setIndexChange(viewableItems.changed[0].index);
+  });
+  const viewConfigRef = React.useRef({viewAreaCoveragePercentThreshold: 50});
+
   return (
     <View style={styles.container}>
       <View style={styles.appMainContainer}>
@@ -63,7 +49,7 @@ export function HomePage() {
       </View>
       <Divider />
       <View style={styles.storyMainContainer}>
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {story.length > 0 &&
             story.map(res => {
               return (
@@ -107,19 +93,37 @@ export function HomePage() {
               />
             </View>
           </View>
-          <Image
-            Style={styles.feedImageContainer}
-            source={require('../images/feedPicture.png')}
+          <FlatList
+            data={slides}
+            onViewableItemsChanged={onViewRef.current}
+            viewabilityConfig={viewConfigRef.current}
+            keyExtractor={item => item.id}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator
+            bounces={false}
+            renderItem={({item, index}) => {
+              return <Image source={item.image} />;
+            }}
           />
         </View>
         <View style={styles.LikesMainContainer}>
           <View style={styles.LikesMainContainer}>
-            <Feather name="heart" size={25} />
-            <Feather name="heart" size={25} />
-            <Feather name="heart" size={25} />
+            <Feather style={{paddingRight: 17}} name="heart" size={25} />
+            <Fontisto style={{paddingRight: 17}} name="comment" size={25} />
+            <Image source={require('../images/chatIcon.png')} />
           </View>
-          <Text> Hello World</Text>
-          <Text> Hello World</Text>
+          <Paginator IndexChange={indexChange} data={slides} />
+          <Image
+            style={{marginLeft: 100}}
+            source={require('../images/tagShape.png')}
+          />
+        </View>
+        <View style={styles.likeIconMainContainer}>
+          <Image source={require('../images/likeIcon.png')} />
+          <Text style={{paddingLeft: 10}}>
+            Liked by craig_love and 44,686 others
+          </Text>
         </View>
       </ScrollView>
     </View>
