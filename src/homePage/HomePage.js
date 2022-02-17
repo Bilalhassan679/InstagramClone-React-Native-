@@ -18,6 +18,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Paginator from '../components/Paginator';
 import slides from '../slides';
 import storySlider from '../storySlider';
+import ReusableAppBar from '../components/ReusableAppBar';
 
 export function HomePage() {
   const [indexChange, setIndexChange] = useState(0);
@@ -29,24 +30,15 @@ export function HomePage() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.appMainContainer}>
-        <View style={styles.appLeftContainer}>
-          <Feather name="camera" size={30} />
-        </View>
-        <View
-          style={{
-            justifyContent: 'center',
-          }}>
-          <Image
-            style={styles.appCenterContainer}
-            source={require('../images/logo.png')}
-          />
-        </View>
-        <View style={styles.appRightContainer}>
-          <Image source={require('../images/tv.png')} />
-          <Image source={require('../images/chatIcon.png')} />
-        </View>
-      </View>
+      <ReusableAppBar
+        iconName={'camera'}
+        imageNameConfirm={true}
+        imageName={require('../images/logo.png')}
+        rightSideIcon={require('../images/tv.png')}
+        rightImage={true}
+        rightSideSecondIcon={require('../images/chatIcon.png')}
+      />
+
       <Divider />
       <View style={styles.storyMainContainer}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -145,13 +137,6 @@ export function tabs3() {
   );
 }
 export function tabs4() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-export function tabs5() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Settings!</Text>

@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  HomePage,
-  SettingsScreen,
-  tabs3,
-  tabs4,
-  tabs5,
-} from './src/homePage/HomePage';
+import {HomePage, SettingsScreen, tabs3, tabs4} from './src/homePage/HomePage';
+import ProfilePage from './src/profilePage/ProfilePage';
 import {Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -23,8 +18,20 @@ function App() {
         screenOptions={{
           headerShown: false,
           tabBarActiveTintColor: color.tabBarActiveColor,
-          
         }}>
+        <Tab.Screen
+          name="ProfilePage"
+          component={ProfilePage}
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: () => (
+              <Image
+                source={require('./src/images/yourprofile.png')}
+                style={{width: 30, height: 30}}
+              />
+            ),
+          }}
+        />
         <Tab.Screen
           name="Home"
           component={HomePage}
@@ -56,25 +63,12 @@ function App() {
           }}
         />
         <Tab.Screen
-          name="tabs4"
-          component={tabs4}
+          name="Profile"
+          component={ProfilePage}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({color, size}) => (
               <Feather name="heart" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="tabs5"
-          component={tabs5}
-          options={{
-            tabBarLabel: '',
-            tabBarIcon: () => (
-              <Image
-                source={require('./src/images/yourprofile.png')}
-                style={{width: 30, height: 30}}
-              />
             ),
           }}
         />

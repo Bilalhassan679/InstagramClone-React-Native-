@@ -17,28 +17,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  appMainContainer: {
-    flexDirection: 'row',
-    width: wp('100'),
-    height: hp('9'),
-    // backgroundColor: 'red',
-    justifyContent: 'space-between',
-    paddingHorizontal: wp('2'),
-  },
-  appLeftContainer: {
-    width: wp('15'),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  appCenterContainer: {
-    width: wp('30'),
-  },
-  appRightContainer: {
-    width: wp('15'),
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
+
   storyMainContainer: {
     // backgroundColor: 'green',
     flexDirection: 'row',
