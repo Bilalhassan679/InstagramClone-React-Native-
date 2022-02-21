@@ -125,21 +125,14 @@ export function HomePage() {
 export function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text>SettingsScreen!</Text>
     </View>
   );
 }
 export function tabs3() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-export function tabs4() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text>tabs3!</Text>
     </View>
   );
 }

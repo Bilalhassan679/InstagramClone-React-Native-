@@ -7,6 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 import Foundation from 'react-native-vector-icons/Foundation';
 import {color} from './src/colors/colors';
+import TopTabCenterPage from './src/components/TopTabCenterPage';
 // import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // const Stack = createNativeStackNavigator();
@@ -63,8 +64,8 @@ function App() {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={ProfilePage}
+          name="TopTabCenterPage"
+          component={TopTabCenterPage}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({color, size}) => (

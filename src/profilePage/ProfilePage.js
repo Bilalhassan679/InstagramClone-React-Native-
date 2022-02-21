@@ -5,23 +5,23 @@ import hobby from '../hobby';
 import ReusableAppBar from '../components/ReusableAppBar';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {Divider} from 'react-native-elements/dist/divider/Divider';
+import TopTabCenterPage from '../components/TopTabCenterPage';
 
 export default function ProfilePage() {
-  const [selectHobby, setSelectHobby] = useState();
+  const [selectHobby, setSelectHobby] = useState([]);
 
   const pickImagesFromGalary = () => {
     launchImageLibrary(
       {
-        selectionLimit: 1,
+        selectionLimit: 20,
         mediaType: 'photo',
         quality: 0.3,
       },
       res => {
         if (!res?.didCancel) {
-          // selectHobby[0].image = res?.assets[0].uri;
-          console.log(res?.assets);
-          setSelectHobby(res.assets[0]?.uri);
-          // console.log('State', imageFromGalary);
+          setSelectHobby(res.assets);
+          console.log('selectHobby', selectHobby);
         }
       },
     );
@@ -82,20 +82,22 @@ export default function ProfilePage() {
               />
             </View>
           </TouchableOpacity>
-
-          {/* {selectHobby && setSelectHobby.map(res =>{return (
-          
-        )})} */}
-          {selectHobby && (
-            <View style={styles.hobbyContainer}>
-              <Image
-                source={{uri: selectHobby}}
-                style={styles.imagehobbyContainer}
-              />
-            </View>
-          )}
+          {selectHobby &&
+            selectHobby.map(res => {
+              console.log('res', res.uri);
+              return (
+                <View style={styles.hobbyContainer}>
+                  <Image
+                    source={{uri: res.uri}}
+                    style={styles.imagehobbyContainer}
+                  />
+                </View>
+              );
+            })}
         </View>
       </View>
+      <Divider width={1} />
+      <TopTabCenterPage />
     </View>
   );
 }
