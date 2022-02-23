@@ -1,14 +1,15 @@
 import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './style';
-import hobby from '../hobby';
-import ReusableAppBar from '../components/ReusableAppBar';
+import hobby from '../../hobby';
+import ReusableAppBar from '../../components/ReusableAppBar';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Divider} from 'react-native-elements/dist/divider/Divider';
-import TopTabCenterPage from '../components/TopTabCenterPage';
+import TopTabCenterPage from '../../components/TopTabCenterPage';
+import EditProfilePage from '../editProfilePage/EditProfilePage';
 
-export default function ProfilePage() {
+export default function ProfilePage({navigation}) {
   const [selectHobby, setSelectHobby] = useState([]);
 
   const pickImagesFromGalary = () => {
@@ -40,7 +41,7 @@ export default function ProfilePage() {
         <View style={{flexDirection: 'row'}}>
           <Image
             style={styles.imageContainer}
-            source={require('../images/bigProfileImage.png')}
+            source={require('../../images/bigProfileImage.png')}
             resizeMode={'contain'}
           />
           <View style={styles.followersMainContainer}>
@@ -66,7 +67,9 @@ export default function ProfilePage() {
           <Text>Everything is designed</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.editButtomMainContainer}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('EditProfile')}
+        style={styles.editButtomMainContainer}>
         <Text style={styles.editTextContainer}>Edit Profile</Text>
       </TouchableOpacity>
       <View style={styles.hobbyMainContainer}>

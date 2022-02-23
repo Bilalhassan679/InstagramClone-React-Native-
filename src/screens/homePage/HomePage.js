@@ -15,10 +15,10 @@ import {Divider} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import Paginator from '../components/Paginator';
-import slides from '../slides';
-import storySlider from '../storySlider';
-import ReusableAppBar from '../components/ReusableAppBar';
+import Paginator from '../../components/Paginator';
+import slides from '../../slides';
+import storySlider from '../../storySlider';
+import ReusableAppBar from '../../components/ReusableAppBar';
 
 export function HomePage() {
   const [indexChange, setIndexChange] = useState(0);
@@ -33,10 +33,10 @@ export function HomePage() {
       <ReusableAppBar
         iconName={'camera'}
         imageNameConfirm={true}
-        imageName={require('../images/logo.png')}
-        rightSideIcon={require('../images/tv.png')}
+        imageName={require('../../images/logo.png')}
+        rightSideIcon={require('../../images/tv.png')}
         rightImage={true}
-        rightSideSecondIcon={require('../images/chatIcon.png')}
+        rightSideSecondIcon={require('../../images/chatIcon.png')}
       />
 
       <Divider />
@@ -59,7 +59,7 @@ export function HomePage() {
           <View style={styles.feedContainer}>
             <Image
               style={{marginRight: 15}}
-              source={require('../images/joshua.png')}
+              source={require('../../images/joshua.png')}
             />
             <View style={{height: 40}}>
               <View
@@ -68,7 +68,7 @@ export function HomePage() {
                   alignItems: 'center',
                 }}>
                 <Text style={{color: 'black', paddingRight: 5}}>joshua_I</Text>
-                <Image source={require('../images/verifiedIcon.png')} />
+                <Image source={require('../../images/verifiedIcon.png')} />
               </View>
               <Text style={{fontSize: 11}}>Tokyo,Japan</Text>
             </View>
@@ -103,16 +103,16 @@ export function HomePage() {
           <View style={styles.LikesMainContainer}>
             <Feather style={{paddingRight: 17}} name="heart" size={25} />
             <Fontisto style={{paddingRight: 17}} name="comment" size={25} />
-            <Image source={require('../images/chatIcon.png')} />
+            <Image source={require('../../images/chatIcon.png')} />
           </View>
           <Paginator IndexChange={indexChange} data={slides} />
           <Image
             style={{marginLeft: 100}}
-            source={require('../images/tagShape.png')}
+            source={require('../../images/tagShape.png')}
           />
         </View>
         <View style={styles.likeIconMainContainer}>
-          <Image source={require('../images/likeIcon.png')} />
+          <Image source={require('../../images/likeIcon.png')} />
           <Text style={{paddingLeft: 10}}>
             Liked by craig_love and 44,686 others
           </Text>

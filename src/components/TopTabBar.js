@@ -1,6 +1,8 @@
 import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Feather from 'react-native-vector-icons/Feather';
+import {color} from '../colors/colors';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -11,9 +13,37 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function TopTabBar() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Menu1" component={Menu1} />
-      <Tab.Screen name="Menu2" component={Menu2} />
+    <Tab.Navigator
+      activeColor="red"
+      inactiveColor="#3e2465"
+      barStyle={{backgroundColor: '#694fad'}}
+      screenOptions={{
+        tabBarItemStyle: {
+          height: 50,
+          paddingTop: 20,
+          backgroundColor: 'white',
+        },
+
+        tabBarOptions: {
+          labelStyle: {fontSize: 12},
+        },
+      }}>
+      <Tab.Screen
+        name="Menu1"
+        component={Menu1}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: color => <Feather name="grid" size={25} color={color} />,
+        }}
+      />
+      <Tab.Screen
+        name="Menu2"
+        component={Menu2}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: color => <Feather name="user" size={25} color={color} />,
+        }}
+      />
     </Tab.Navigator>
   );
 }
